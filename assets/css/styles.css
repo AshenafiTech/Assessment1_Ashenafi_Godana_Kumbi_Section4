@@ -30,9 +30,8 @@ nav {
 nav ul {
     display: flex;
     list-style: none;
-    justify-self: center;
+    justify-content: center;
     gap: 30px;
-    text-decoration: none;
 }
 
 nav ul li a {
@@ -42,8 +41,8 @@ nav ul li a {
 
 main {
     margin: 0 auto;
-    width: 80%;
-    margin-bottom: 200px;
+    width: 90%;
+    margin-bottom: 100px;
 }
 
 main h2 {
@@ -58,32 +57,36 @@ main h2 {
 
 .product-list {
     display: flex;
-    gap: 30px;
-    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
 }
 
 .product-list .product {
-    width: 280px;
+    flex: 1 1 calc(33.333% - 20px); /* Adjust the width for 3 columns */
+    max-width: 300px;
     background-color: white;
     text-align: center;
     padding: 15px 10px;
     border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.product-list .product img {
+    width: 100%;
+    max-width: 220px;
+    border-radius: 8px;
+    margin: 0 auto;
 }
 
 .product-list .product h2 {
     text-align: center;
-    margin-left: 0;
+    margin: 10px 0;
 }
-
-.product-list img {
-    width: 220px;
-    border-radius: 8px;
-}
-
 
 .product p {
     color: grey;
-    margin-bottom: 30px;
+    margin-bottom: 15px;
 }
 
 .product .price {
@@ -96,4 +99,39 @@ footer {
     text-align: center;
     padding: 25px;
     color: white;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    main {
+        width: 95%;
+    }
+    .product-list .product {
+        flex: 1 1 calc(50% - 20px); /* Two columns on medium screens */
+    }
+}
+
+@media (max-width: 768px) {
+    .product-list .product {
+        flex: 1 1 100%; /* Single column on small screens */
+    }
+    nav ul {
+        flex-direction: column;
+        gap: 15px;
+    }
+    main h2 {
+        margin: 20px 0;
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 24px;
+    }
+    .product .price {
+        font-size: 24px;
+    }
+    nav ul li a {
+        font-size: 14px;
+    }
 }
